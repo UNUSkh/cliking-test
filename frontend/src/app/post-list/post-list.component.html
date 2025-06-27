@@ -1,0 +1,27 @@
+<div class="max-w-6xl mx-auto">
+  <div class="mb-4 px-4 flex justify-center">
+    <input
+      type="text"
+      placeholder="Rechercher un post..."
+      [(ngModel)]="searchTerm"
+      (input)="filterPosts()"
+      class="p-2 border border-indigo-950 rounded-md focus:outline-none focus:ring-5 focus:ring-indigo-600 w-full max-w-md"
+    />
+  </div>
+
+  <!--postst filtred or fetched -->
+  <div *ngIf="filteredPosts.length > 0" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
+    <div *ngFor="let post of filteredPosts" class="flex justify-center">
+      <app-post
+        [post]="post"
+        (delete)="deletePost($event)"
+        (update)="updatePost($event)"
+      ></app-post>
+    </div>
+  </div>
+
+  <!--no post found indicator-->
+  <div *ngIf="filteredPosts.length === 0" class="flex justify-center items-center h-64 text-gray-500 text-lg">
+    Aucun post trouvé
+  </div>
+</div>

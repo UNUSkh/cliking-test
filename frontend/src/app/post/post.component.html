@@ -1,0 +1,31 @@
+<div class="bg-white rounded-t-xl rounded-b-xl shadow-md overflow-hidden  flex flex-col justify-between relative group transition-shadow duration-300 hover:shadow-xl h-[320px] min-w-[370px]">
+
+  <!--effet signal bas-->
+  <span
+    class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-900 to-rose-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
+  ></span>
+
+  <div class="bg-indigo-950 text-white px-4 py-2 mb-1 rounded-br-3xl w-max self-start">
+    {{ post.title }}
+  </div>
+  <div class="flex-grow overflow-y-auto px-4 py-4 text-center text-gray-700 text-base leading-relaxed">
+    {{ post.content }}
+  </div>
+  <div class="flex justify-between gap-2">
+  <button  (click)="showEditDialog = true" class="bg-indigo-900 text-white px-4 py-2 mt-1 rounded-tr-3xl hover:bg-indigo-800 transition">
+    Modifier
+  </button>
+  
+  <button (click)="onDelete()" class="bg-rose-500 text-white px-4 py-2 mt-1 rounded-tl-3xl hover:bg-rose-700 transition">
+    Supprimer
+  </button>
+</div>
+<app-post-edit-dialog
+  *ngIf="showEditDialog"
+  [post]="post"
+  (close)="showEditDialog = false"
+  (update)="onUpdate($event)"
+></app-post-edit-dialog>
+
+
+</div>

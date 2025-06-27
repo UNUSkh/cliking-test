@@ -1,0 +1,12 @@
+<div class="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 to-blue-100 p-4">
+  <header class="text-center text-3xl font-bold mb-6 text-blue-800">
+    Dashboard de gestion des posts
+  </header>
+  <main class="flex-grow">
+    <app-post-form (postCreated)="refreshPosts()"></app-post-form>
+    <app-post-list [refreshTrigger]="trigger"></app-post-list>
+  </main>
+  <footer class="text-gray-900 text-center py-2 mt-3">
+    <p class="mb-0">©2025 Younes</p>
+  </footer>
+</div>

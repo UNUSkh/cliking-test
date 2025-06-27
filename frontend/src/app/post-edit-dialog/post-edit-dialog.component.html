@@ -1,0 +1,55 @@
+<div class="fixed inset-0 bg-black bg-opacity-40  flex justify-center items-center z-50">
+  <div class="bg-white rounded-xl shadow-md w-full max-w-xl m-3 relative group ">
+    <div class="bg-indigo-950 text-white px-4 py-2 rounded-br-3xl mb-3 rounded-tl-xl w-max">
+      Modifier le post
+    </div>
+
+    <form (ngSubmit)="submitEdit()" class="space-y-4">
+      <div class="mr-8 ml-8">
+        <label class="block text-sm font-medium text-gray-600 mb-1">Titre</label>
+        <input
+          [(ngModel)]="editedTitle"
+          name="title"
+          required
+          class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600"
+        />
+      </div>
+
+      <div class="mr-8 ml-8">
+        <label class="block text-sm font-medium text-gray-600 mb-1">Contenu</label>
+        <textarea
+          [(ngModel)]="editedContent"
+          name="content"
+          rows="4"
+          required
+          class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600"
+        ></textarea>
+      </div>
+
+      <!--btns down-->
+      <div class="flex justify-between mt-6">
+        <button
+          type="button"
+          (click)="cancel()"
+          class="bg-gray-200 text-gray-700 px-4 py-2 rounded-bl-xl rounded-tr-3xl  hover:bg-gray-300 transition"
+        >
+          Annuler
+        </button>
+        <button
+          type="submit"
+          class="bg-indigo-900 text-white px-4 py-2 rounded-tl-3xl rounded-br-xl  hover:bg-indigo-800 transition"
+        >
+          Sauvegarder
+        </button>
+      </div>
+    </form>
+
+    <!--x btn top right-->
+    <button
+      (click)="cancel()"
+      class="absolute top-3 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold"
+    >
+      &times;
+    </button>
+  </div>
+</div>

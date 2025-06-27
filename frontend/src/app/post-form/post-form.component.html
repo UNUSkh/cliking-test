@@ -1,0 +1,16 @@
+<div > <div class="flex justify-center mb-4">
+    <button 
+      (click)="showForm = !showForm" 
+      class="bg-sky-950 text-white px-4 py-2 rounded hover:bg-indigo-900 transition"
+    >
+      {{ showForm ? 'Annuler' : 'Créer un nouveau poste' }}
+    </button>
+  </div>
+    <div class="bg-white shadow-md rounded-xl p-6 mb-6 max-w-2xl mx-auto" *ngIf="showForm">
+      <h2 class="text-xl font-semibold text-gray-700 mb-4">Créer un nouveau poste</h2>
+      <form (ngSubmit)="submitPost()">
+        <input class="w-full p-2 border rounded mb-2" placeholder="Titre" [(ngModel)]="title" name="title" required />
+        <textarea class="w-full p-2 border rounded mb-2" placeholder="Contenu" [(ngModel)]="content" name="content" required></textarea>
+        <button type="submit" class="bg-indigo-950 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Ajouter</button>
+      </form>
+    </div></div>
